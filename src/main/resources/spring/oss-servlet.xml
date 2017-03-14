@@ -72,6 +72,8 @@
 		<property name="cache" value="true" />
 		<property name="suffix" value=".ftl" />
 		<property name="order" value="0" />
+		<!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
+		<property name="requestContextAttribute" value="rc" />
 	</bean>
 
 	<!-- 配置freeMarker的模板路径 -->

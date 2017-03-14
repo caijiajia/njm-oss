@@ -72,6 +72,5 @@
     <script src="${appRootPath}/statics/js/jquery/jquery-1.8.3.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="${appRootPath}/statics/bootstrap/js/bootstrap.min.js"></script>
-    <script src="${appRootPath}/statics/js/login/login.js"></script>
   </body>
 </html>

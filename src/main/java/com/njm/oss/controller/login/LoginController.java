@@ -5,11 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.njm.oss.controller.common.BaseController;
 
 /**
- * @ClassName: MqLogController  
- * @Description: MQ报文日志查询功能
- * @author 
- * @date 2015年11月3日 上午10:55:48
- *
+ * Copyright: Copyright (c) 2015 yaoyaohao.com
+ * 
+ * @className: LoginController
+ * @description: TODO
+
+ * @version: v1.0.0
+ * @author: caijiajia
+ * @date: 2017-3-14
  */
 @Controller
 @RequestMapping("/login")
