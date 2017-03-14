@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njm.oss.dao.demo.ProdDao">
+
+	<resultMap id="prodInfo" type="com.njm.oss.model.demo.Prod">
+		<id property="merchandise_id" column="merchandise_id" />
+		<result property="merchandise_cd" column="merchandise_cd" />
+		<result property="purchase_id" column="purchase_id" />
+		<result property="merchandise_nm" column="merchandise_nm" />
+		<result property="description" column="description" />
+		<result property="retail_price" column="retail_price" />
+		<result property="specifications" column="specifications" />
+	</resultMap>
+	
+	<sql id="sqlProductInfo">
+		SELECT
+			t.merchandise_id, t.merchandise_cd, t.purchase_id, 
+			t.merchandise_nm, t.description, t.retail_price, 
+			t.specifications
+		FROM
+			t_merchandise_info t
+	</sql>
+	
+	<sql id="sqlProductAllInfo">
+		SELECT
+			t.merchandise_id, t.merchandise_cd, t.purchase_id, 
+			t.merchandise_nm, t.description, t.retail_price, 
+			t.specifications
+		FROM
+			t_merchandise_info t
+	</sql>
+
+	<select id="selectInfoById" resultMap="prodInfo"
+		parameterType="int">
+		<include refid="sqlProductInfo" />
+		WHERE t.merchandise_id = #{merchandise_id}
+	</select>
+
+	<select id="selectInfoByProdId" resultMap="prodInfo"
+		parameterType="string">
+		<include refid="sqlProductInfo" />
+		WHERE t.merchandise_cd = #{merchandise_cd}
+	</select>
+
+	<select id="selectListByCateId" resultMap="prodInfo"
+		parameterType="int">
+		<include refid="sqlProductAllInfo" />
+		WHERE
+			t.purchase_id = #{purchase_id}
+	</select>
+	
+	<select id="selectListByPageParam1" resultMap="prodInfo">
+		<include refid="sqlProductAllInfo" />
+		WHERE
+			t.purchase_id = #{0}
+			LIMIT #{1}, #{2}
+	</select>
+	
+	<select id="selectListByPageParam2" resultMap="prodInfo">
+		<include refid="sqlProductAllInfo" />
+		WHERE
+			t.purchase_id = #{purchase_id}
+			LIMIT #{start}, #{size}
+	</select>
+	
+	<select id="selectListByPageParam3" parameterType="hashmap" resultMap="prodInfo">
+		<include refid="sqlProductAllInfo" />
+		WHERE
+			t.purchase_id = #{purchase_id}
+			LIMIT #{start}, #{size}
+	</select>
+	
+	<select id="selectListByPageParam4" parameterType="hashmap" resultMap="prodInfo">
+		<include refid="sqlProductAllInfo" />
+		WHERE
+			t.purchase_id = #{purchase_id}
+	</select>
+	
+</mapper>

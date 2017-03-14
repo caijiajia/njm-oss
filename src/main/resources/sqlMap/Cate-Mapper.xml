@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njm.oss.dao.demo.CateDao">
+
+	<resultMap id="cateInfo" type="com.njm.oss.model.demo.Cate">
+		<id property="purchase_id" column="purchase_id" />
+		<result property="parent_id" column="parent_id" />
+		<result property="purchase_nm" column="purchase_nm" />
+		<result property="catalog" column="catalog" />
+	</resultMap>
+
+	<resultMap id="cateList" type="com.njm.oss.model.demo.Cate">
+		<id property="purchase_id" column="purchase_id" />
+		<result property="parent_id" column="parent_id" />
+		<result property="purchase_nm" column="purchase_nm" />
+		<result property="catalog" column="catalog" />
+		<collection property="children" column="purchase_id" ofType="cateList" 
+			javaType="java.util.ArrayList" select="selectListByParentId" />
+	</resultMap>
+	
+	<sql id="sqlCateInfo">
+		SELECT
+			t.purchase_id, t.parent_id, t.purchase_nm, 
+			t.catalog
+		FROM
+			t_merchandise_purchase_catalog t
+	</sql>
+
+	<select id="selectInfoById" resultMap="cateInfo"
+		parameterType="int">
+		<include refid="sqlCateInfo"></include>
+		WHERE
+			t.purchase_id = #{purchase_id}
+	</select>
+
+	<select id="selectInfoByCateId" resultMap="cateInfo"
+		parameterType="int">
+		<include refid="sqlCateInfo"></include>
+		WHERE
+			t.purchase_id = #{purchase_id}
+	</select>
+	
+	<select id="selectListByParentId" resultMap="cateList"
+		parameterType="int">
+		<include refid="sqlCateInfo"></include>
+		WHERE
+			t.parent_id = #{purchase_id}
+	</select>
+
+</mapper>

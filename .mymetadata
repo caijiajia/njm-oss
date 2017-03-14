@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="njm-oss"
+  id="myeclipse.1441586357703"
+  context-root="/oss"
+  j2ee-spec="1.7"
+  archive="njm-oss.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+

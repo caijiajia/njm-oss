@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<application>
+    
+    <!-- redis数据失效时间，单位：秒 -->
+    <redis-expireTime>1800</redis-expireTime>
+    
+    <!-- 首页配置
+    	goods4PageUrl : 商品图片的跳转地址
+    	goods4PageUrl-suffix:商品图片的跳转地址后缀
+    	goodsPicUrl:商品图片的访问地址
+    	fixedPrice-picSize:一口价商品图片尺寸
+    	floor-picSize:楼层商品图片尺寸
+    	pic_suffix:图片后缀
+     -->
+    <indexConfig
+    	goods4PageUrl = "//${main-domain}/product/"
+    	goods4PageUrl-suffix = ".html"
+    	goodsPicUrl = "//${main-domain}/productimage/"
+    	fixedPrice-picSize = "220x220"
+    	floor-picSize = "120x120"
+    	search-picSize = "80x80"
+    	pic_suffix = "1.jpg"
+    />
+    
+    <!-- 地推页配置
+    	goods4PageUrl : 商品图片的跳转地址
+    	goods4PageUrl-suffix:商品图片的跳转地址后缀
+    	goodsPicUrl:商品图片的访问地址
+    	goodsPicSize:商品图片尺寸
+    	pic_suffix:图片后缀
+    	goodsEachPage:每页展示商品数量
+     -->
+    <bdPageConfig
+    	goods4PageUrl = "//${main-domain}/product/"
+    	goods4PageUrl-suffix = ".html"
+    	goodsPicUrl = "//${main-domain}/productimage/"
+    	goodsPicSize = "60x60"
+    	pic_suffix = "1.jpg"
+    	goodsEachPage = "5"
+    />
+    
+    <!-- 图片通用配置，若定制化强请单独新建，勿修改此条配置 -->
+    <commonConfig 
+    	goods4PageUrl = "//${main-domain}/product/"
+    	goods4PageUrl-suffix = ".html"
+    	goodsPicUrl = "//${main-domain}/productimage/"
+   		picSize220 = "220x220"
+    	picSize120 = "120x120"
+    	picSize80 = "80x80"
+    	pic_suffix = "1.jpg"
+    />
+    
+    
+</application>
