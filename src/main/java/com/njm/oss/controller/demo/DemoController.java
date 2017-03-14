@@ -7,7 +7,7 @@ import com.njm.oss.controller.common.BaseController;
 /**
  * @ClassName: MqLogController  
  * @Description: MQ报文日志查询功能
- * @author liujianzhu
+ * @author 
  * @date 2015年11月3日 上午10:55:48
  *
  */
