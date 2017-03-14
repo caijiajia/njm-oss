@@ -13,6 +13,12 @@
 	<!-- 扫描action层 -->
 	<context:component-scan base-package="com.njm.oss.controller" />
 	
+	<!-- 配置静态资源路径 -->
+	<mvc:resources mapping="/statics/**" location="/statics/" />
+	
+	<mvc:view-controller path="/" view-name="redirect:/login/initPage"/>
+	<mvc:view-controller path="/errors/404" view-name="common/404"/>
+	
 	<!-- 校验框架 -->
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
@@ -76,7 +82,18 @@
 		<property name="configLocation">
 			<value>classpath:freemarker.properties</value>
 		</property>
+		<!--全局变量部分 -->
+		<property name="freemarkerVariables">
+			<map>
+				<entry key="xml_escape" value-ref="fmXmlEscape" />
+				<entry key="html_escape" value-ref="fmHtmlEscape" />
+				<entry key="appRootPath" value="${app-root-path}" />
+			</map>
+		</property>
 	</bean>
+	<!-- freemarker配置 -->
+	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+    <bean id="fmHtmlEscape" class="freemarker.template.utility.HtmlEscape"/>
 
 	<mvc:annotation-driven validator="validator">
 		<mvc:message-converters register-defaults="true">
