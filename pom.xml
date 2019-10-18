@@ -13,7 +13,7 @@
 	<properties>
 		<springside.version>4.2.3-GA</springside.version>
 		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-		<spring.version>4.2.1.RELEASE</spring.version>
+		<spring.version>5.2.0.RELEASE</spring.version>
 		<aspectjrt.version>1.8.6</aspectjrt.version>
 		<aspectjweaver.version>1.8.6</aspectjweaver.version>
 		<mybatis.version>3.3.0</mybatis.version>
