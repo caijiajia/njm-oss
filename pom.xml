@@ -16,7 +16,7 @@
 		<spring.version>4.2.1.RELEASE</spring.version>
 		<aspectjrt.version>1.8.6</aspectjrt.version>
 		<aspectjweaver.version>1.8.6</aspectjweaver.version>
-		<mybatis.version>3.3.0</mybatis.version>
+		<mybatis.version>3.5.6</mybatis.version>
 		<mybatis-spring.version>1.2.3</mybatis-spring.version>
 		<pagehelper.version>3.7.6</pagehelper.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
